@@ -1,26 +1,29 @@
-// es5: we declared variables using var
+// es6
+// let x = 1;
 
-// global scoped
-var x = 1;
+// redeclaration throws an error unlike var
+// let x = 3;
 
-// variables were global scoped or function scoped
-function add1(y) {
-    // function scoped
-    var x = 2;
+// scope
+let x = 1;
+function add(y) {
     return y + x;
 }
-// 5
-console.log(add1(3));
+console.log(add(3));
+// above - so let variables can accessed from inside functions if declared in their outer environment just like var
 
 function add2(y) {
+    let x = 2;
     return y + x;
 }
-// 4
 console.log(add2(3));
 
-// they were also hoisted
-// undefined, no error - thanks to hoisting
+// hoisting
+// console.log(z); // commented due to error and explained what is temporal dead zone
+// temporal dead zone (call before declared)
+let z;
+// after declared you can view undefined
 console.log(z);
-var z = 1;
-// 1
+z = 1;
 console.log(z);
+
