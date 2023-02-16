@@ -51,12 +51,37 @@ for (const value of mySet.values()) {
 
 // iteration with forEach
 mySet.forEach((value) => {
-    console.log(value);    
+  console.log(value);
 });
 
-// from
+// from 
 
 // ...
 const myArray = [...mySet];
 console.log(myArray);
 
+// challenge: intersection and difference
+// mySet
+// mySet2
+// intSet
+// diffSet
+console.log([1, 2, 3].filter((item) => item > 2));
+console.log(mySet);
+console.log(mySet2);
+
+// intersection
+const intArray = [...mySet].filter((item) => mySet2.has(item));
+console.log(intArray);
+const intSet = new Set(intArray);
+console.log(intSet);
+
+// difference
+const diffArray = [...mySet].filter((item) => !mySet2.has(item));
+console.log(diffArray);
+
+const diffArray2 = [...mySet2].filter((item) => !mySet.has(item));
+console.log(diffArray2);
+
+const diffSet = new Set(diffArray.concat(diffArray2));
+console.log(diffSet);
+ 
