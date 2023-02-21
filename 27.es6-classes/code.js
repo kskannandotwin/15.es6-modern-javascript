@@ -42,10 +42,22 @@ class phone6 {
   extendWarranty(x) {
       this.warranty += x;
   }
+
+  // static method
+  static defaultPhone() {
+    return new phone6('Apple', 'iphone 6');
+  }
 }
 
 const myPhone6 = new phone6('Apple', 'Iphone7', 11, 'Black');
 console.log(myPhone6);
 console.log(typeof phone6); // function
+// static methods not attached to class instances
+console.log(myPhone6.defaultPhone);
+console.log(phone6.defaultPhone);
+console.log(phone6.defaultPhone());
 
+console.log(Object.create);
+const obj = {name: 'John'};
+console.log(obj.create);
 
