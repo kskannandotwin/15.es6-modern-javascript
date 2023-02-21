@@ -80,3 +80,22 @@ myPhone6.warranty = 40; // calls the setter
 myPhone6.warranty = 30; // calls the setter
 console.log(myPhone6.warranty); // calls the getter
 console.log(myPhone6.log);
+
+// inheritance - extends - super
+class smartPhone6 extends phone6 {
+  constructor(make, model, OS) {
+    super(make, model);
+    this.OS = OS;
+  }
+  extendWarranty(x){
+    super.extendWarranty(x);
+  }
+}
+
+const mySmartPhone6 = new smartPhone6('Apple', 'Iphone 7', 'IOS 11');
+console.log(mySmartPhone6);
+mySmartPhone6.extendWarranty(10);
+console.log(mySmartPhone6);
+
+console.log(mySmartPhone6 instanceof smartPhone6); // true
+console.log(mySmartPhone6 instanceof phone6); // true
