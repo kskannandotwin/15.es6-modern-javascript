@@ -33,23 +33,36 @@ console.log(mySmartphone);
 
 // ES6
 class phone6 {
-  constructor(make, model, warranty, color) {
+  constructor(make, model, _warranty, color) {
     this.make = make;
     this.model = model;
-    this.warranty = warranty || 24;
+    this._warranty = _warranty || 24;
     this.color = color || "white";
+    this.log = [];
   }
   extendWarranty(x) {
-      this.warranty += x;
+    this.warranty += x;
   }
 
   // static method
   static defaultPhone() {
-    return new phone6('Apple', 'iphone 6');
+    return new phone6("Apple", "iphone 6");
+  }
+
+  // setter
+  set warranty(x) {
+    this.log.push(`Warranty set to ${x}`);
+    this._warranty = x;
+  }
+
+  // getter
+  get warranty() {
+    console.log(`get warranty called`);
+    return this._warranty;
   }
 }
 
-const myPhone6 = new phone6('Apple', 'Iphone7', 11, 'Black');
+const myPhone6 = new phone6("Apple", "Iphone7", 11, "Black");
 console.log(myPhone6);
 console.log(typeof phone6); // function
 // static methods not attached to class instances
@@ -58,6 +71,12 @@ console.log(phone6.defaultPhone);
 console.log(phone6.defaultPhone());
 
 console.log(Object.create);
-const obj = {name: 'John'};
+const obj = { name: "John" };
 console.log(obj.create);
 
+// setters and getters
+myPhone6.warranty = 30; // calls the setter
+myPhone6.warranty = 40; // calls the setter
+myPhone6.warranty = 30; // calls the setter
+console.log(myPhone6.warranty); // calls the getter
+console.log(myPhone6.log);
